@@ -110,6 +110,11 @@ The intended consumer is a WS4 road-status reader/report layer. It would join
 `segment_id` to the existing road graph and report state/width next to cost and
 volume. This package does not modify WS4.
 
+The TFL 6 instance currently has DRA road vectors but no WS4 route-edge graph
+with matching ids. A join is therefore **not implemented**; the next step is to
+materialize that graph and map `dra:<id>` to WS4 edge ids. No fabricated mapping
+is included.
+
 ### FHOPS
 
 FHOPS could later use the same records as an access/status layer. That is
