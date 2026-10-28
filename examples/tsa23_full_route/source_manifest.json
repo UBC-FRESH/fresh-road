@@ -1,0 +1,41 @@
+{
+  "schema_version": "fresh.route.source.v1",
+  "generated_utc": "2026-10-28T07:04:00+00:00",
+  "pilot": "TSA23 full DRA route graph",
+  "bbox_wgs84": [-122.25833858, 50.95138545, -120.20000032, 52.19999992],
+  "roads": {
+    "source": "BC Digital Road Atlas - Master Partially-Attributed Roads",
+    "object_name": "WHSE_BASEMAPPING.DRA_DGTL_ROAD_ATLAS_MPAR_SP",
+    "wfs_url": "https://openmaps.gov.bc.ca/geo/pub/ows",
+    "feature_count": 90198,
+    "local_gpkg_not_committed": "roads.gpkg",
+    "crs": "EPSG:3005"
+  },
+  "blocks": {
+    "source": "TSA 23 block layer",
+    "block_count": 102128
+  },
+  "destination": {
+    "company": "West Fraser Mills Ltd.",
+    "mill_id": "95",
+    "locality": "100 Mile House",
+    "product_code": "LBR"
+  },
+  "route_fixture": {
+    "edges": 90198,
+    "vertices": 80733,
+    "blocks": 102128,
+    "destinations": 1,
+    "routed_blocks": 99335,
+    "unrouted_blocks": 2793,
+    "components": 779,
+    "largest_component_vertices": 77819,
+    "route_length_m": {
+      "min": 578,
+      "median": 59529,
+      "p90": 93539,
+      "max": 153897
+    },
+    "costs": "zero placeholders; route-length only"
+  }
+}
