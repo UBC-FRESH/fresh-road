@@ -8,3 +8,5 @@ build/
 dist/
 .venv/
 runtime/
+
+Rplots.pdf

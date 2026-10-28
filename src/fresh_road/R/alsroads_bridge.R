@@ -26,7 +26,9 @@ if (!lidR::is.indexed(ctg)) {
 }
 dtm <- raster(dtm_path)
 roads <- st_read(roads_path, quiet = TRUE)
-roads <- st_transform(roads, 3156)
+target_crs <- st_crs(ctg)
+if (is.na(target_crs)) stop("could not determine LAS CRS")
+roads <- st_transform(roads, target_crs)
 
 out <- list()
 for (index in seq_len(nrow(roads))) {

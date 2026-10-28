@@ -34,5 +34,21 @@
     "version": "0.2.0",
     "url": "https://github.com/r-lidar-lab/ALSroads",
     "reference": "https://doi.org/10.1016/j.jag.2022.103020"
+  },
+  "second_acquisition": {
+    "point_cloud": {
+      "tile": "bc_092l055_3_4_3_xyes_8_utm10_2019.laz",
+      "url": "https://nrs.objectstore.gov.bc.ca/gdwuts/092/092l/2019/pointcloud/bc_092l055_3_4_3_xyes_8_utm10_2019.laz",
+      "source": "LidarBC",
+      "year": 2019,
+      "density_ppm2": 8,
+      "crs": "EPSG:3157",
+      "vertical_datum": "CGVD2013"
+    },
+    "dem": {
+      "tile": "bc_092l055_xl1m_utm10_2019.tif",
+      "url": "https://nrs.objectstore.gov.bc.ca/gdwuts/092/092l/2019/dem/bc_092l055_xl1m_utm10_2019.tif",
+      "resolution_m": 1
+    }
   }
 }
