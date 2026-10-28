@@ -104,6 +104,9 @@ missing row. It reports `ROADWIDTH = 0`, `CONDUCTIVITY = 0`, and 100% cover.
 
 ## Integration
 
+The current TFL 6 WS4 graph gap and the report-only crosswalk fixture are
+documented in [`docs/tfl6-ws4-graph-gap.md`](docs/tfl6-ws4-graph-gap.md).
+
 ### WS4
 
 The intended consumer is a WS4 road-status reader/report layer. It would join
