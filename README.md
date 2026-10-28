@@ -10,6 +10,9 @@ invent a new road detector, a new passability model, or a new optimizer input.
 
 Status: `0.1.0a1` alpha / pilot.
 
+**Important:** the TSA 23 route examples are exploratory DRA-only tests. They
+are not the planned WS4 paved/resource/grid road network.
+
 ## Why it exists
 
 WS4 can build, route, and cost a supplied road network. FHOPS assumes access.
