@@ -63,5 +63,14 @@
     "build_cost_median_cad": 188421.88,
     "build_cost_p90_cad": 274477.31,
     "build_cost_max_cad": 324034.27
+  },
+  "haul_scenario": {
+    "source": "FHOPS examples/hauling/scenario.yaml highway truck",
+    "speed_kmh": 37.0,
+    "variable_cost_per_minute_cad": 1.2,
+    "capacity_m3": 45.0,
+    "scope": "variable travel only; excludes fixed truck day, loading/unloading, overtime, maintenance, profit",
+    "median_cost_cad_m3": 0.5665120338956448,
+    "p90_cost_cad_m3": 0.8252475749868654
   }
 }

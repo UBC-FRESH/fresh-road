@@ -1,0 +1,10 @@
+{
+  "source": "FHOPS examples/hauling/scenario.yaml truck_types.highway and travel_minutes",
+  "truck_type": "highway",
+  "capacity_m3": 45.0,
+  "variable_cost_per_minute_cad": 1.2,
+  "fixed_cost_cad_per_truck_day": 120.0,
+  "speed_kmh": 37.0,
+  "speed_basis": "median implied speed from the three public haul_arc travel_minutes/distance_km pairs (92/150, 108/175, 121/195)",
+  "scope": "variable travel cost only; excludes fixed truck day, loading/unloading, overtime, maintenance, and profit"
+}

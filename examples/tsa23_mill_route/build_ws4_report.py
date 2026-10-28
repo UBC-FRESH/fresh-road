@@ -40,6 +40,16 @@ def main() -> int:
     )
     report = areas.merge(report, on="block_id", how="inner", validate="one_to_one")
     report = report.sort_values("block_id").reset_index(drop=True)
+    # Optional documented FHOPS highway-truck scenario. Keep the raw route
+    # length separate from this partial variable-cost column.
+    speed_kmh = 37.0
+    variable_cost_per_minute = 1.20
+    capacity_m3 = 45.0
+    report["haul_one_way_minutes"] = report["route_length_m"] / 1000.0 / speed_kmh * 60.0
+    report["haul_round_trip_minutes"] = report["haul_one_way_minutes"] * 2.0
+    report["haul_variable_cost_cad_m3"] = (
+        report["haul_round_trip_minutes"] * variable_cost_per_minute / capacity_m3
+    )
     report.to_csv(args.out_csv, index=False)
 
     routed = report[report["route_status"] == "routed"]
@@ -68,6 +78,19 @@ def main() -> int:
             "max": float(routed["build_cost_cad"].max()),
         },
         "cost_scope": "TR-28 subgrade reconstruction only; excludes haul and maintenance",
+        "haul_scenario": {
+            "source": "FHOPS examples/hauling/scenario.yaml highway truck",
+            "speed_kmh": 37.0,
+            "variable_cost_per_minute_cad": 1.20,
+            "capacity_m3": 45.0,
+            "scope": "variable travel only; excludes fixed truck day, loading/unloading, overtime, maintenance, profit",
+            "cost_cad_m3": {
+                "min": float(routed["haul_variable_cost_cad_m3"].min()),
+                "median": float(routed["haul_variable_cost_cad_m3"].median()),
+                "p90": float(routed["haul_variable_cost_cad_m3"].quantile(0.9)),
+                "max": float(routed["haul_variable_cost_cad_m3"].max()),
+            },
+        },
     }
     args.out_summary.write_text(json.dumps(summary, indent=2) + "\n")
     print(f"wrote {args.out_csv} ({len(report)} blocks)")

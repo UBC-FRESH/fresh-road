@@ -21,5 +21,18 @@
     "p90": 274477.3102715166,
     "max": 324034.26781311765
   },
-  "cost_scope": "TR-28 subgrade reconstruction only; excludes haul and maintenance"
+  "cost_scope": "TR-28 subgrade reconstruction only; excludes haul and maintenance",
+  "haul_scenario": {
+    "source": "FHOPS examples/hauling/scenario.yaml highway truck",
+    "speed_kmh": 37.0,
+    "variable_cost_per_minute_cad": 1.2,
+    "capacity_m3": 45.0,
+    "scope": "variable travel only; excludes fixed truck day, loading/unloading, overtime, maintenance, profit",
+    "cost_cad_m3": {
+      "min": 0.0428001360728878,
+      "median": 0.5665120338956448,
+      "p90": 0.8252475749868654,
+      "max": 0.974246262690695
+    }
+  }
 }

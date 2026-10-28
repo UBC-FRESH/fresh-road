@@ -75,6 +75,27 @@ This is a **subgrade reconstruction scenario**, not the present-day cost of the
 existing DRA roads. It excludes haul and maintenance. It is not a total
 delivered cost and is not used by WS4 optimization.
 
+## Partial haul scenario
+
+A separate haul-variable scenario uses the public FHOPS `examples/hauling`
+highway truck:
+
+- capacity 45 m3
+- variable cost **1.20 CAD/min**
+- scenario speed **37 km/h**, derived from the example's three
+  `travel_minutes`/`distance_km` pairs
+- round-trip travel only
+
+| Haul variable cost | CAD/m3 |
+|---|---:|
+| Minimum | 0.043 |
+| Median | 0.567 |
+| 90th percentile | 0.825 |
+| Maximum | 0.974 |
+
+This excludes the fixed truck day, loading/unloading, overtime, maintenance,
+and profit. It is not a delivered-cost model.
+
 ## WS4 report-only join
 
 `build_ws4_report.py` joins the route/status table to the TSA 23 compiled WS4
@@ -82,6 +103,7 @@ block ids and writes:
 
 - `ws4_route_report.csv`
 - `ws4_route_report_summary.json`
+- `haul_cost_parameters.json`
 
 The join is report-only and uses the existing WS4 compiled block table:
 
