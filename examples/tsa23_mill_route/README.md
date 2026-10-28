@@ -54,10 +54,33 @@ from the nearest DRA line. They are classified `unrouted_disconnected` in
 `block_access_status.csv`; no connector or zero-length access link was
 invented.
 
+## TR-28 subgrade reconstruction scenario
+
+A documented partial cost scenario is included:
+
+- FERIC TR-28, `Caterpillar 235 hydraulic backhoe`
+- 2024 CAD unit cost: **28.7654 CAD/m**
+- source: `fhops.reference.tr28_subgrade`
+- `segments_tr28.csv`: every route edge assigned that unit cost
+- `route_build_costs_tr28.csv`: build cost along the shortest-length path
+
+| Route construction cost | CAD |
+|---|---:|
+| Minimum | 14,235 |
+| Median | 188,422 |
+| 90th percentile | 235,962 |
+| Maximum | 324,034 |
+
+This is a **subgrade reconstruction scenario**, not the present-day cost of the
+existing DRA roads. It excludes haul and maintenance. It is not a total
+delivered cost and is not used by WS4 optimization.
+
 ## What is not claimed
 
-- Cost columns are **zero**; this is a route-length test, not a haul/build cost
-  model.
+- The base route test has zero costs; the TR-28 file is a separate partial
+  build-cost scenario, not a full haul/build/maintenance model.
+- TR-28 assumes subgrade reconstruction of every segment; it is not a claim
+  that the existing roads need rebuilding.
 - The mill is a public facility, but no mill demand allocation is created.
 - Blocks are linked to the nearest road vertex; that is a documented linkage
   rule, not a field-verified access point.

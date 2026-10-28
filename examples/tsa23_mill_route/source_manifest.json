@@ -53,5 +53,15 @@
     "costs": "zero placeholders; route-length only, not optimization",
     "unrouted_blocks_nearest_road_m": 777.9,
     "block_status": "block_access_status.csv"
+  },
+  "cost_scenario": {
+    "source": "FERIC TR-28 via FHOPS",
+    "machine": "Caterpillar 235 hydraulic backhoe",
+    "target_year": 2024,
+    "unit_cost_target_cad_per_m": 28.765401929260445,
+    "scope": "subgrade reconstruction only; excludes haul and maintenance",
+    "build_cost_median_cad": 188421.88,
+    "build_cost_p90_cad": 235961.92,
+    "build_cost_max_cad": 324034.27
   }
 }

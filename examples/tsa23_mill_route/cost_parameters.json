@@ -1,0 +1,9 @@
+{
+  "source": "FERIC TR-28 subgrade machines via FHOPS",
+  "machine": "Caterpillar 235 hydraulic backhoe",
+  "machine_slug": "caterpillar_235_hydraulic_backhoe",
+  "target_year": 2024,
+  "unit_cost_target_cad_per_m": 28.765401929260445,
+  "scope": "subgrade reconstruction scenario only; not current maintenance or haul cost",
+  "include_mobilisation": false
+}
