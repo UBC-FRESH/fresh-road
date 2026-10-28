@@ -82,6 +82,14 @@ Class is stable for 4/4 segments across the two acquisitions. Width and score
 are not stable for `1820758` and `460555`; these numbers should not be treated as
 fixed asset attributes without an independent measurement.
 
+## WS4 route crosswalk fixture
+
+`route_fixture/` contains a report-only WS4-style route graph for these four
+DRA segments: 18 vertices, 16 node-split edges, and a one-to-many
+DRA-to-edge crosswalk. `destinations.csv` and `linkages.csv` are intentionally
+empty, and the cost columns are zero. It validates the id mapping only; it is
+not a complete TFL 6 route model and must not be used in an optimization.
+
 ## What is not claimed
 
 - No field validation of class or width.
