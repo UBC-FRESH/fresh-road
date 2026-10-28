@@ -2,7 +2,12 @@
   "schema_version": "fresh.route.source.v1",
   "generated_utc": "2026-10-28T05:50:00+00:00",
   "pilot": "TSA23 100 Mile House route-length test",
-  "bbox_wgs84": [-121.380905, 51.614034, -121.280905, 51.694034],
+  "bbox_wgs84": [
+    -121.380905,
+    51.614034,
+    -121.280905,
+    51.694034
+  ],
   "mill": {
     "company": "West Fraser Mills Ltd.",
     "locality": "100 Mile House",
@@ -33,7 +38,10 @@
     "blocks": 729,
     "destinations": 1,
     "routed_blocks": 727,
-    "unrouted_blocks": [20222, 67577],
+    "unrouted_blocks": [
+      20222,
+      67577
+    ],
     "components": 3,
     "largest_component_vertices": 17949,
     "route_length_m": {
@@ -42,6 +50,8 @@
       "p90": 9542,
       "max": 11265
     },
-    "costs": "zero placeholders; route-length only, not optimization"
+    "costs": "zero placeholders; route-length only, not optimization",
+    "unrouted_blocks_nearest_road_m": 777.9,
+    "block_status": "block_access_status.csv"
   }
 }

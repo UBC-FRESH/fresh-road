@@ -49,8 +49,10 @@ Using route length (not cost) with every edge open:
 | Largest component | 17,949 vertices |
 
 The two unrouted blocks are in small disconnected components, not missing from
-the block layer. This is a topology finding to resolve before using the network
-for access constraints.
+the block layer. Both share the same nearest road vertex and are **777.9 m**
+from the nearest DRA line. They are classified `unrouted_disconnected` in
+`block_access_status.csv`; no connector or zero-length access link was
+invented.
 
 ## What is not claimed
 
@@ -62,7 +64,9 @@ for access constraints.
 - No WS4 objective, constraint, solver, or growth code was changed.
 
 `route_lengths.csv` contains the block-level route lengths and access distances.
-`source_manifest.json` records the exact sources and counts.
+`block_access_status.csv` classifies every block as `routed` or
+`unrouted_disconnected`. `source_manifest.json` records the exact sources and
+counts.
 
 ## Next
 
