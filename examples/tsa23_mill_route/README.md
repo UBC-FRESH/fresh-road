@@ -68,12 +68,29 @@ A documented partial cost scenario is included:
 |---|---:|
 | Minimum | 14,235 |
 | Median | 188,422 |
-| 90th percentile | 235,962 |
+| 90th percentile | 274,477 |
 | Maximum | 324,034 |
 
 This is a **subgrade reconstruction scenario**, not the present-day cost of the
 existing DRA roads. It excludes haul and maintenance. It is not a total
 delivered cost and is not used by WS4 optimization.
+
+## WS4 report-only join
+
+`build_ws4_report.py` joins the route/status table to the TSA 23 compiled WS4
+block ids and writes:
+
+- `ws4_route_report.csv`
+- `ws4_route_report_summary.json`
+
+The join is report-only and uses the existing WS4 compiled block table:
+
+- 729 route blocks matched to 729 WS4 blocks
+- 6,807.75 ha of WS4 block area
+- 727 routed blocks / 6,801.06 ha
+- two unrouted blocks (`20222`, `67577`)
+
+No WS4 objective, constraint, solver, or growth table was changed.
 
 ## What is not claimed
 

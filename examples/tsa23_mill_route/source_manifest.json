@@ -61,7 +61,7 @@
     "unit_cost_target_cad_per_m": 28.765401929260445,
     "scope": "subgrade reconstruction only; excludes haul and maintenance",
     "build_cost_median_cad": 188421.88,
-    "build_cost_p90_cad": 235961.92,
+    "build_cost_p90_cad": 274477.31,
     "build_cost_max_cad": 324034.27
   }
 }

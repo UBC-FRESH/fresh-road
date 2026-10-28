@@ -1,0 +1,25 @@
+{
+  "schema_version": "fresh.ws4.route-report.v1",
+  "scope": "report-only; no WS4 objective, constraint, solver, or growth change",
+  "block_count": 729,
+  "routed_blocks": 727,
+  "unrouted_blocks": [
+    20222,
+    67577
+  ],
+  "ws4_area_ha": 6807.754695650001,
+  "routed_area_ha": 6801.06469565,
+  "route_length_m": {
+    "min": 494.87657334276525,
+    "median": 6550.295391918391,
+    "p90": 9541.925085785631,
+    "max": 11264.722412361163
+  },
+  "tr28_build_cost_cad": {
+    "min": 14235.323537579774,
+    "median": 188421.87970391507,
+    "p90": 274477.3102715166,
+    "max": 324034.26781311765
+  },
+  "cost_scope": "TR-28 subgrade reconstruction only; excludes haul and maintenance"
+}
