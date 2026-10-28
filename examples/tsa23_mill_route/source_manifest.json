@@ -1,0 +1,47 @@
+{
+  "schema_version": "fresh.route.source.v1",
+  "generated_utc": "2026-10-28T05:50:00+00:00",
+  "pilot": "TSA23 100 Mile House route-length test",
+  "bbox_wgs84": [-121.380905, 51.614034, -121.280905, 51.694034],
+  "mill": {
+    "company": "West Fraser Mills Ltd.",
+    "locality": "100 Mile House",
+    "mill_id": "95",
+    "product_code": "LBR",
+    "status": "Op",
+    "source": "BC Major Timber Processing Facilities",
+    "object_name": "WHSE_IMAGERY_AND_BASE_MAPS.GSR_TMBR_PRCSSING_FAC_SV",
+    "geometry": "route_fixture/destination.gpkg"
+  },
+  "roads": {
+    "source": "BC Digital Road Atlas - Master Partially-Attributed Roads",
+    "object_name": "WHSE_BASEMAPPING.DRA_DGTL_ROAD_ATLAS_MPAR_SP",
+    "wfs_url": "https://openmaps.gov.bc.ca/geo/pub/ows",
+    "line_count": 1414,
+    "merged_parts": 1315,
+    "local_path": "roads.gpkg",
+    "crs": "EPSG:3005"
+  },
+  "blocks": {
+    "source": "TSA 23 block layer",
+    "local_path": "/srv/shared-data/gep/iversen-jamie-msc-thesis/femic-tsa23-instance/runtime/gis/tsa23_blocks.geojson",
+    "linked_blocks": 729
+  },
+  "route_fixture": {
+    "edges": 18314,
+    "vertices": 17972,
+    "blocks": 729,
+    "destinations": 1,
+    "routed_blocks": 727,
+    "unrouted_blocks": [20222, 67577],
+    "components": 3,
+    "largest_component_vertices": 17949,
+    "route_length_m": {
+      "min": 495,
+      "median": 6550,
+      "p90": 9542,
+      "max": 11265
+    },
+    "costs": "zero placeholders; route-length only, not optimization"
+  }
+}

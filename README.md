@@ -114,10 +114,12 @@ The intended consumer is a WS4 road-status reader/report layer. It would join
 volume. This package does not modify WS4.
 
 The TFL 6 instance has DRA road vectors but no WS4 route-edge graph with
-matching ids. The TSA 23 route/access test under
-`examples/tsa23_route/` is the current topology fixture: 6,921 edges, 356
-blocks, 10 components, and no destinations or costs. It is report/topology only
-and is not an optimization input.
+matching ids. TSA 23 has a stronger route test:
+`examples/tsa23_mill_route/` uses 729 blocks, 18,314 edges, and the public
+West Fraser 100 Mile House mill (`MILL_ID 95`) as a destination. 727/729 blocks
+route to the mill; median route length is 6,550 m. Cost columns remain zero, so
+this is route-length only, not an optimization input. A larger no-destination
+topology fixture is also under `examples/tsa23_route/`.
 
 ### FHOPS
 
