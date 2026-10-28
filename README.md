@@ -104,6 +104,11 @@ missing row. It reports `ROADWIDTH = 0`, `CONDUCTIVITY = 0`, and 100% cover.
 
 ## Integration
 
+The full TSA 23 route topology cleanup is documented in
+[`docs/topology-cleanup.md`](docs/topology-cleanup.md). Noding/merging the DRA
+linework reduced edges but did not improve block access; the remaining
+disconnected blocks are DRA source gaps, not duplicate vertices.
+
 The current TFL 6 WS4 graph gap and the report-only crosswalk fixture are
 documented in [`docs/tfl6-ws4-graph-gap.md`](docs/tfl6-ws4-graph-gap.md).
 
