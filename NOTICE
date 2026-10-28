@@ -1,0 +1,12 @@
+fresh-road
+Copyright 2026 FRESH Lab
+
+This package calls the external ALSroads implementation. ALSroads is a separate
+GPL-3 dependency and is not redistributed here.
+
+ALSroads reference:
+Roussel, J.-R., Bourdon, J.-F., Morley, I. D., Coops, N. C., & Achim, A.
+(2022). Correction, update, and enhancement of vectorial forestry road maps
+using ALS data, a pathfinder, and seven metrics. International Journal of
+Applied Earth Observation and Geoinformation, 114, 103020.
+https://doi.org/10.1016/j.jag.2022.103020

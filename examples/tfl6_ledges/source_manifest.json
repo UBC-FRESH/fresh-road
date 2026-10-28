@@ -1,0 +1,38 @@
+{
+  "schema_version": "fresh.road.source.v1",
+  "generated_utc": "2026-10-28T00:51:00+00:00",
+  "pilot": "TFL6 Ledge Point",
+  "point_cloud": {
+    "tile": "bc_092l055_3_4_3_xyes_8_utm9_20231031_20231031.laz",
+    "url": "https://nrs.objectstore.gov.bc.ca/gdwuts/092/092l/2023/pointcloud/bc_092l055_3_4_3_xyes_8_utm9_20231031_20231031.laz",
+    "source": "LidarBC OP24BMRS001",
+    "year": 2023,
+    "density_ppm2": 8,
+    "crs": "EPSG:3156",
+    "vertical_datum": "CGVD2013"
+  },
+  "dem": {
+    "tile": "bc_092l055_3_4_3_xli1m_utm9_20231031_20231031.tif",
+    "url": "https://nrs.objectstore.gov.bc.ca/gdwuts/092/092l/2023/dem/bc_092l055_3_4_3_xli1m_utm9_20231031_20231031.tif",
+    "resolution_m": 1,
+    "crs": "EPSG:6652"
+  },
+  "roads": {
+    "source": "BC Digital Road Atlas - Master Partially-Attributed Roads",
+    "object_name": "WHSE_BASEMAPPING.DRA_DGTL_ROAD_ATLAS_MPAR_SP",
+    "dataset_url": "https://catalogue.data.gov.bc.ca/dataset/digital-road-atlas-dra-master-partially-attributed-roads",
+    "local_path": "femic/external/femic-tfl6-instance/data/source/tfl_6/roads/dra_roads_tfl6.gpkg",
+    "segments": [
+      1820758,
+      1781964,
+      387113,
+      460555
+    ]
+  },
+  "tool": {
+    "name": "ALSroads",
+    "version": "0.2.0",
+    "url": "https://github.com/r-lidar-lab/ALSroads",
+    "reference": "https://doi.org/10.1016/j.jag.2022.103020"
+  }
+}

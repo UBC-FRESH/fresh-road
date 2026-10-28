@@ -1,0 +1,221 @@
+{
+  "records": [
+    {
+      "alsroads_class": 1,
+      "conductivity": 0.88,
+      "crs": "EPSG:3005",
+      "drivable_width_m": 7.0,
+      "geometry": {
+        "coordinates": [
+          [
+            918959.9401516832,
+            620562.284886527
+          ],
+          [
+            918931.8710016457,
+            620597.9772940559
+          ]
+        ],
+        "type": "LineString"
+      },
+      "notes": "ALSroads state class is source-preserving; passability is not inferred. DRA surface/class are source attributes.",
+      "passability": "unknown",
+      "percent_above_road": 0.2,
+      "retrieved_utc": "2026-10-28T00:49:07.104032+00:00",
+      "road_class": "local",
+      "road_width_m": 7.0,
+      "schema_version": "fresh.road.status.v1",
+      "segment_id": "dra:1820758",
+      "shoulders": 20.0,
+      "sinuosity": 1.0,
+      "source": "ALSroads 0.2.0 + LidarBC OP24BMRS001 + BC DRA",
+      "source_date": "2023-10-31",
+      "source_feature_id": 1820758,
+      "state_score": 75.0,
+      "status": "class_1",
+      "surface": "loose"
+    },
+    {
+      "alsroads_class": 4,
+      "conductivity": 0.0,
+      "crs": "EPSG:3005",
+      "drivable_width_m": 0.0,
+      "geometry": {
+        "coordinates": [
+          [
+            918858.6032607448,
+            620910.2615080088
+          ],
+          [
+            918869.0483795122,
+            620921.1013520561
+          ],
+          [
+            918907.8173820237,
+            620961.4693520096
+          ],
+          [
+            918947.3063843643,
+            620996.9863517614
+          ],
+          [
+            918979.8733863204,
+            621026.9633515823
+          ],
+          [
+            919013.937388174,
+            621053.3613512262
+          ],
+          [
+            919036.4023900918,
+            621088.6133516119
+          ],
+          [
+            919093.7213938903,
+            621150.5303516178
+          ],
+          [
+            919125.640395835,
+            621180.5503514693
+          ],
+          [
+            919133.5423963462,
+            621188.7853514608
+          ],
+          [
+            919146.1333971146,
+            621200.6953513996
+          ],
+          [
+            919213.1414012056,
+            621264.0333510974
+          ]
+        ],
+        "type": "LineString"
+      },
+      "notes": "ALSroads state class is source-preserving; passability is not inferred. DRA surface/class are source attributes.",
+      "passability": "unknown",
+      "percent_above_road": 100.0,
+      "retrieved_utc": "2026-10-28T00:49:07.104032+00:00",
+      "road_class": "resource",
+      "road_width_m": 0.0,
+      "schema_version": "fresh.road.status.v1",
+      "segment_id": "dra:1781964",
+      "shoulders": 0.0,
+      "sinuosity": null,
+      "source": "ALSroads 0.2.0 + LidarBC OP24BMRS001 + BC DRA",
+      "source_date": "2023-10-31",
+      "source_feature_id": 1781964,
+      "state_score": 0.0,
+      "status": "class_4",
+      "surface": "loose"
+    },
+    {
+      "alsroads_class": 1,
+      "conductivity": 0.36,
+      "crs": "EPSG:3005",
+      "drivable_width_m": 6.9,
+      "geometry": {
+        "coordinates": [
+          [
+            918929.4397380179,
+            620589.2325804149
+          ],
+          [
+            918910.2841732757,
+            620586.1451658916
+          ],
+          [
+            918868.9406237835,
+            620583.032947028
+          ],
+          [
+            918858.7750411191,
+            620581.5254592757
+          ],
+          [
+            918846.6980924725,
+            620577.1173786271
+          ]
+        ],
+        "type": "LineString"
+      },
+      "notes": "ALSroads state class is source-preserving; passability is not inferred. DRA surface/class are source attributes.",
+      "passability": "unknown",
+      "percent_above_road": 7.6,
+      "retrieved_utc": "2026-10-28T00:49:07.104032+00:00",
+      "road_class": "resource",
+      "road_width_m": 7.8,
+      "schema_version": "fresh.road.status.v1",
+      "segment_id": "dra:387113",
+      "shoulders": 72.2,
+      "sinuosity": 1.0,
+      "source": "ALSroads 0.2.0 + LidarBC OP24BMRS001 + BC DRA",
+      "source_date": "2023-10-31",
+      "source_feature_id": 387113,
+      "state_score": 83.2,
+      "status": "class_1",
+      "surface": "loose"
+    },
+    {
+      "alsroads_class": 1,
+      "conductivity": 0.87,
+      "crs": "EPSG:3005",
+      "drivable_width_m": 11.2,
+      "geometry": {
+        "coordinates": [
+          [
+            918860.3227556876,
+            620795.3411970482
+          ],
+          [
+            918867.8229296138,
+            620766.3044770343
+          ],
+          [
+            918879.6595444645,
+            620738.5463644472
+          ],
+          [
+            918891.8163887039,
+            620700.4325248731
+          ],
+          [
+            918902.6129436698,
+            620672.7324418786
+          ],
+          [
+            918909.941318698,
+            620644.8584974458
+          ],
+          [
+            918928.1987081442,
+            620607.6655890158
+          ],
+          [
+            918932.095236281,
+            620595.8726246165
+          ]
+        ],
+        "type": "LineString"
+      },
+      "notes": "ALSroads state class is source-preserving; passability is not inferred. DRA surface/class are source attributes.",
+      "passability": "unknown",
+      "percent_above_road": 1.0,
+      "retrieved_utc": "2026-10-28T00:49:07.104032+00:00",
+      "road_class": "local",
+      "road_width_m": 11.5,
+      "schema_version": "fresh.road.status.v1",
+      "segment_id": "dra:460555",
+      "shoulders": 90.9,
+      "sinuosity": 1.0,
+      "source": "ALSroads 0.2.0 + LidarBC OP24BMRS001 + BC DRA",
+      "source_date": "2023-10-31",
+      "source_feature_id": 460555,
+      "state_score": 100.0,
+      "status": "class_1",
+      "surface": "loose"
+    }
+  ],
+  "schema_version": "fresh.road.status.v1"
+}
