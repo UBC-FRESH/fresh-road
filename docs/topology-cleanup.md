@@ -20,7 +20,7 @@ Status: completed, **did not materially improve connectivity**
 | Vertices | 80,733 | 73,719 |
 | Connected components | 779 | 778 |
 | Blocks routed | 99,335 | 99,289 |
-| Blocks unrouted | 2,793 | 2,839 |
+| Blocks no-route | 2,793 | 2,839 |
 | Median route length | 59,529 m | 59,536 m |
 | P90 route length | 93,539 m | 93,655 m |
 | Max route length | 153,897 m | 153,837 m |
@@ -33,7 +33,7 @@ but that would be a new topology assumption and was not applied.
 ## Conclusion
 
 - Do not add full-graph costs or start PLAN-05 until access gaps are resolved or
-  explicitly classified as no-access.
+  explicitly classified as no route in the DRA graph.
 - The 2,793/2,839 disconnected blocks must remain visible.
 - A future cleanup should use an authoritative road-topology source or a
   documented snapping rule with validation, not arbitrary connectors.
@@ -50,7 +50,7 @@ The public Forest Tenure road-section layer
 - combined with the 90,198 DRA features and re-noded
 
 Result: 509,374 merged parts, 302,314 vertices, **1,787 components**, and
-95,831 blocks routed (6,297 unrouted). The FSR layer made connectivity worse,
+95,831 blocks routed (6,297 no-route). The FSR layer made connectivity worse,
 so it was not adopted.
 
 The DRA-only graph remains the better base. The remaining disconnected blocks

@@ -48,9 +48,9 @@ Using route length (not cost) with every edge open:
 | Connected components | 3 |
 | Largest component | 17,949 vertices |
 
-The two unrouted blocks are in small disconnected components, not missing from
+The two no-route blocks are in small disconnected components, not missing from
 the block layer. Both share the same nearest road vertex and are **777.9 m**
-from the nearest DRA line. They are classified `unrouted_disconnected` in
+from the nearest DRA line. They are classified `no_route_in_dra_graph` in
 `block_access_status.csv`; no connector or zero-length access link was
 invented.
 
@@ -110,7 +110,7 @@ The join is report-only and uses the existing WS4 compiled block table:
 - 729 route blocks matched to 729 WS4 blocks
 - 6,807.75 ha of WS4 block area
 - 727 routed blocks / 6,801.06 ha
-- two unrouted blocks (`20222`, `67577`)
+- two no-route blocks (`20222`, `67577`)
 
 No WS4 objective, constraint, solver, or growth table was changed.
 
@@ -127,12 +127,12 @@ No WS4 objective, constraint, solver, or growth table was changed.
 
 `route_lengths.csv` contains the block-level route lengths and access distances.
 `block_access_status.csv` classifies every block as `routed` or
-`unrouted_disconnected`. `source_manifest.json` records the exact sources and
+`no_route_in_dra_graph`. `source_manifest.json` records the exact sources and
 counts.
 
 ## Next
 
-1. Resolve the two disconnected blocks (link, drop, or mark as no-access).
+1. Resolve the two disconnected blocks (link, drop, or mark as `no_route_in_dra_graph`).
 2. Add documented haul/build/maintenance cost parameters.
 3. Run route costs against a WS4/TSA23 schedule.
 4. Then use the graph for PLAN-05 connectivity.

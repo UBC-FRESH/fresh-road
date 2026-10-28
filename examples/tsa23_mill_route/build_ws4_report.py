@@ -58,7 +58,7 @@ def main() -> int:
         "scope": "report-only; no WS4 objective, constraint, solver, or growth change",
         "block_count": int(len(report)),
         "routed_blocks": int(len(routed)),
-        "unrouted_blocks": sorted(
+        "no_route_blocks": sorted(
             int(value) for value in report.loc[
                 report["route_status"] != "routed", "block_id"
             ]

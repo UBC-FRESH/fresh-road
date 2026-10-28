@@ -38,7 +38,7 @@
     "blocks": 729,
     "destinations": 1,
     "routed_blocks": 727,
-    "unrouted_blocks": [
+    "no_route_blocks": [
       20222,
       67577
     ],
@@ -51,7 +51,7 @@
       "max": 11265
     },
     "costs": "zero placeholders; route-length only, not optimization",
-    "unrouted_blocks_nearest_road_m": 777.9,
+    "no_route_blocks_nearest_road_m": 777.9,
     "block_status": "block_access_status.csv"
   },
   "cost_scenario": {

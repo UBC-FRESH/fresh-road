@@ -33,7 +33,7 @@ enough to inspect.
 |---|---:|
 | Blocks | 102,128 |
 | Routed to 100 Mile House | **99,335** |
-| Unrouted | **2,793** |
+| No route in DRA graph | **2,793** |
 | WS4 block area | 988,816 ha |
 | Routed area | 961,758 ha |
 | Unrouted area | 27,058 ha |
@@ -43,7 +43,7 @@ enough to inspect.
 | Connected components | 779 |
 | Largest component | 77,819 vertices |
 
-The 2,793 unrouted blocks are explicitly `unrouted_disconnected` in
+The 2,793 no-route blocks are explicitly `no_route_in_dra_graph` in
 `ws4_route_report_full.csv`; they are not silently assigned a zero route.
 
 ## Important limitations

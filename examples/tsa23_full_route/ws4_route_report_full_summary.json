@@ -3,10 +3,8 @@
   "scope": "report-only; no WS4 objective, constraint, solver, or growth change",
   "block_count": 102128,
   "routed_blocks": 99335,
-  "unrouted_blocks": 2793,
   "ws4_area_ha": 988816.34438895,
   "routed_area_ha": 961758.06239134,
-  "unrouted_area_ha": 27058.28199761,
   "route_length_m": {
     "min": 578.0254783445334,
     "median": 59528.96866772298,
@@ -16,5 +14,7 @@
   "components": 779,
   "largest_component_vertices": 77819,
   "destination": "destination.WEST_FRASER_100MILE_95",
-  "costs": "zero; route-length only"
+  "costs": "zero; route-length only",
+  "no_route_blocks": 2793,
+  "no_route_area_ha": 27058.28199761
 }

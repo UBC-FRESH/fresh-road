@@ -27,7 +27,7 @@
     "blocks": 102128,
     "destinations": 1,
     "routed_blocks": 99335,
-    "unrouted_blocks": 2793,
+    "no_route_blocks": 2793,
     "components": 779,
     "largest_component_vertices": 77819,
     "route_length_m": {
