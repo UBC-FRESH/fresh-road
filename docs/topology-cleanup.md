@@ -39,3 +39,20 @@ but that would be a new topology assumption and was not applied.
   documented snapping rule with validation, not arbitrary connectors.
 
 No WS4 objective, constraint, solver, or growth code was changed.
+
+## Additional FSR layer check
+
+The public Forest Tenure road-section layer
+`WHSE_FOREST_TENURE.FTEN_ROAD_SECTION_LINES_SVW` was also tested:
+
+- 16,112 unique sections in the TSA 23 bbox
+- 11,089 `ACTIVE` sections retained
+- combined with the 90,198 DRA features and re-noded
+
+Result: 509,374 merged parts, 302,314 vertices, **1,787 components**, and
+95,831 blocks routed (6,297 unrouted). The FSR layer made connectivity worse,
+so it was not adopted.
+
+The DRA-only graph remains the better base. The remaining disconnected blocks
+are a source/topology limitation, not a missing endpoint-snap or a missing FSR
+layer.
