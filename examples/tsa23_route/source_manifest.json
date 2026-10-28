@@ -1,0 +1,32 @@
+{
+  "schema_version": "fresh.route.source.v1",
+  "generated_utc": "2026-10-28T01:37:00+00:00",
+  "pilot": "TSA23 5 km route/access test",
+  "bbox_wgs84": [-121.2719135266216, 51.5422347232826, -121.19191352662159, 51.6022347232826],
+  "roads": {
+    "source": "BC Digital Road Atlas - Master Partially-Attributed Roads",
+    "object_name": "WHSE_BASEMAPPING.DRA_DGTL_ROAD_ATLAS_MPAR_SP",
+    "wfs_url": "https://openmaps.gov.bc.ca/geo/pub/ows",
+    "feature_count": 450,
+    "local_path": "examples/tsa23_route/roads.gpkg",
+    "crs": "EPSG:3005"
+  },
+  "blocks": {
+    "source": "TSA 23 block layer",
+    "local_path": "/srv/shared-data/gep/iversen-jamie-msc-thesis/femic-tsa23-instance/runtime/gis/tsa23_blocks.geojson",
+    "block_count": 356
+  },
+  "route_fixture": {
+    "vertices": 6881,
+    "segments": 6921,
+    "blocks": 356,
+    "components": 10,
+    "largest_component_vertices": 6566,
+    "largest_component_blocks": 323,
+    "median_access_distance_m": 109.1,
+    "p90_access_distance_m": 343.9,
+    "max_access_distance_m": 1020.2,
+    "destinations": 0,
+    "costs": "zero placeholders; not for optimization"
+  }
+}

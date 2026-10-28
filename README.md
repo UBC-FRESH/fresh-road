@@ -113,10 +113,11 @@ The intended consumer is a WS4 road-status reader/report layer. It would join
 `segment_id` to the existing road graph and report state/width next to cost and
 volume. This package does not modify WS4.
 
-The TFL 6 instance currently has DRA road vectors but no WS4 route-edge graph
-with matching ids. A join is therefore **not implemented**; the next step is to
-materialize that graph and map `dra:<id>` to WS4 edge ids. No fabricated mapping
-is included.
+The TFL 6 instance has DRA road vectors but no WS4 route-edge graph with
+matching ids. The TSA 23 route/access test under
+`examples/tsa23_route/` is the current topology fixture: 6,921 edges, 356
+blocks, 10 components, and no destinations or costs. It is report/topology only
+and is not an optimization input.
 
 ### FHOPS
 
