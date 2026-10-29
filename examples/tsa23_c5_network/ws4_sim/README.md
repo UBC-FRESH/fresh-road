@@ -38,7 +38,12 @@ common account.  Route accounts are additive only.
 
 The DRA fixture is route-length-only, so its zero build/haul/maintenance costs
 are not a cost baseline.  It also leaves 36 scheduled blocks / 189,557 ledger
-volume unrouted because the DRA fixture has source gaps.
+volume unrouted.  This is **not** true isolation: every one of the 36 is linked
+to a DRA vertex 37–1,823 m away (median 405 m), and all 36 route on the c5
+network (median 48.4 km).  They cover 512 ha and are in the compiled managed
+forest schedule; the DRA graph simply has disconnected source components.  Do not use the DRA-only
+fixture as the access baseline, and do not paper over the gap with artificial
+connectors.  The block-level explanation is in `dra_unrouted_blocks.csv`.
 
 The c5 route-cost report is:
 
@@ -55,6 +60,8 @@ routed product rows, not merchantable volume.
 ## Files
 
 - `route_dra.yaml` — DRA route configuration used for the comparison.
+- `dra_unrouted_blocks.csv` — the 36 DRA-only no-route blocks, their DRA
+  access distance, and their c5 route length/destination.
 - `run_base/`, `run_dra/`, `run_c5/` — WS4 simulation outputs.
 - `comparison.json` — machine-readable summary.
 - `build_comparison.py` — regenerates `comparison.json`.
