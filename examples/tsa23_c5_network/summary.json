@@ -1,6 +1,6 @@
 {
   "schema": "fresh.road.network.summary.v1",
-  "generated_utc": "2026-10-29T02:54:22.095326+00:00",
+  "generated_utc": "2026-10-29T04:30:53.610707+00:00",
   "aoi": {
     "blocks": 102128,
     "area_ha": 988816.34438895,
@@ -21,101 +21,102 @@
     "mill_features": 13
   },
   "existing": {
-    "paved_km": 474.8545032840796,
-    "resource_km": 5918.975792734744,
+    "paved_km": 583.6293398855794,
+    "resource_km": 7863.876993503431,
     "source_paved_km": 612.5254022593691,
     "source_resource_km": 7513.095698021543,
-    "segments": 13151,
-    "length_km": 6393.830296018824
+    "segments": 38947,
+    "length_km": 8447.50633338901
   },
   "potential": {
-    "grid_spacing_m": 4000.0,
-    "raw_pieces": 2591,
-    "filtered_pieces": 1087,
-    "filtered_length_km": 4348.0,
+    "grid_spacing_m": 600.0,
+    "raw_pieces": 167485,
+    "filtered_pieces": 81803,
+    "filtered_length_km": 55818.40369301107,
     "class_variants": 4,
-    "segments": 12008,
-    "length_km_by_variant": 4335.999985800057,
+    "segments": 426316,
+    "length_km_by_variant": 55317.5436116993,
     "filters": {
-      "impassable": 184,
-      "dangling_removed": 96,
-      "tiny_components": 0
+      "near_parallel": 549,
+      "impassable": 7807,
+      "dangling_removed": 1103,
+      "tiny_components": 4
     }
   },
   "network": {
-    "segments": 25159,
-    "vertices": 13321,
+    "segments": 465263,
+    "vertices": 72299,
     "destinations": 3,
     "components": 1,
-    "largest_component_vertices": 13321,
+    "largest_component_vertices": 72299,
     "class_summary": [
       {
         "source_kind": "existing_paved",
         "road_type": "H",
-        "segments": 327,
-        "length_km": 143.39141592212
+        "segments": 682,
+        "length_km": 152.27903485715663
       },
       {
         "source_kind": "existing_paved",
         "road_type": "P",
-        "segments": 360,
-        "length_km": 98.01166641806043
+        "segments": 655,
+        "length_km": 113.56657071336303
       },
       {
         "source_kind": "existing_paved",
         "road_type": "S",
-        "segments": 917,
-        "length_km": 233.45142094389922
+        "segments": 1750,
+        "length_km": 317.7837343150597
       },
       {
         "source_kind": "existing_resource",
         "road_type": "S",
-        "segments": 2266,
-        "length_km": 1834.471846186546
+        "segments": 8281,
+        "length_km": 2134.7039249751083
       },
       {
         "source_kind": "existing_resource",
         "road_type": "T",
-        "segments": 9281,
-        "length_km": 4084.503946548198
+        "segments": 27579,
+        "length_km": 5729.173068528324
       },
       {
         "source_kind": "potential",
         "road_type": "class_1",
-        "segments": 3002,
-        "length_km": 4335.999985800057
+        "segments": 106579,
+        "length_km": 55317.5436116993
       },
       {
         "source_kind": "potential",
         "road_type": "class_2",
-        "segments": 3002,
-        "length_km": 4335.999985800057
+        "segments": 106579,
+        "length_km": 55317.5436116993
       },
       {
         "source_kind": "potential",
         "road_type": "class_3",
-        "segments": 3002,
-        "length_km": 4335.999985800057
+        "segments": 106579,
+        "length_km": 55317.5436116993
       },
       {
         "source_kind": "potential",
         "road_type": "class_4",
-        "segments": 3002,
-        "length_km": 4335.999985800057
+        "segments": 106579,
+        "length_km": 55317.5436116993
       }
     ]
   },
   "linkage": {
     "blocks": 102128,
-    "linked_within_m": 3000.0,
-    "linked_blocks": 99541,
-    "routed_blocks": 99541,
-    "no_route_or_no_linkage": 2587,
+    "linked_within_m": null,
+    "linked_blocks": 102128,
+    "routed_blocks": 102128,
+    "no_route_or_no_linkage": 0,
     "link_distance_m": {
-      "min": 2.3629751858302175,
-      "median": 707.044272758839,
-      "p90": 1790.1087729512906,
-      "max": 10997.982312021686
+      "min": 0.5826117682112842,
+      "median": 210.3236149384634,
+      "p90": 341.7442934955416,
+      "max": 8113.03136052276
     },
     "status_file": "block_linkage_status.csv"
   },
@@ -168,11 +169,11 @@
     "caveat": "c5 has one new-road build coefficient (N); all four potential classes share it."
   },
   "ws4_load": {
-    "segments": 25159,
-    "vertices_with_coordinates": 13321,
+    "segments": 465263,
+    "vertices_with_coordinates": 72299,
     "destinations": 3,
-    "block_vertices": 99541,
+    "block_vertices": 102128,
     "note": "loaded with ws4.roads.network.RouteNetwork.from_tables; no WS4 code changed"
   },
-  "elapsed_seconds": 144.85688757896423
+  "elapsed_seconds": 777.9160668849945
 }

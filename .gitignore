@@ -10,3 +10,6 @@ dist/
 runtime/
 
 Rplots.pdf
+
+# Large generated inspection layer (rebuild with build_network.py)
+examples/tsa23_c5_network/network.gpkg

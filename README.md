@@ -142,11 +142,11 @@ The planned WS4 road network is
 - four identical-geometry potential class variants per grid edge;
 - build cost 0 on existing roads and c5 maintenance/haul coefficients.
 
-Result: 25,159 segments, 13,321 vertices, one connected component, 99,541 of
-102,128 blocks linked and routed. The 2,587 unlinked blocks are reported as
-`no_linkage`, not as “no access.” The report-only WS4 route test in
-`examples/tsa23_c5_network/ws4_report/` gives a median 52.6 km route to the
-nearest mill; no WS4 objective or solver code is changed.
+Result: 465,263 segments, 72,299 vertices, one connected component, and all
+102,128 blocks linked and routed. The potential grid is the c5-style 600 m
+lattice with one diagonal per cell, not a 4 km lattice. The report-only WS4
+route test in `examples/tsa23_c5_network/ws4_report/` gives a median 44.5 km
+route to the nearest mill; no WS4 objective or solver code is changed.
 
 See the example README and [`docs/cost-sources.md`](docs/cost-sources.md) for
 the exact source and cost caveats.

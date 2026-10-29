@@ -28,6 +28,7 @@ import argparse
 import json
 import logging
 import math
+import random
 import time
 from collections import Counter, defaultdict
 from collections.abc import Iterable
@@ -306,8 +307,12 @@ def _assign_source_classes(
                 best_overlap = overlap
                 best_index = int(index)
         if best_index is None or best_overlap <= 0.0:
-            types.append("T")
-            kinds.append("existing_resource")
+            # Union pieces can lose exact overlap at a shared endpoint.  Use
+            # the nearest source line rather than silently filing a potential
+            # grid edge as an existing resource road.
+            nearest_index = int(source_tree.nearest(piece))
+            types.append(source_type[nearest_index])
+            kinds.append(source_kind[nearest_index])
             overlaps.append(0.0)
             continue
         types.append(source_type[best_index])
@@ -316,11 +321,25 @@ def _assign_source_classes(
     return types, kinds, overlaps
 
 
-def _grid_segments(bounds: tuple[float, float, float, float], spacing: float) -> list[LineString]:
-    """Return the individual grid edges (not the long grid lines)."""
+def _grid_segments(
+    bounds: tuple[float, float, float, float],
+    spacing: float,
+    *,
+    diagonal_seed: int = 2025,
+) -> list[LineString]:
+    """Return the c5-style 600 m grid with one diagonal per cell.
+
+    The c5 ``access.shp`` potential roads are a 600 m lattice (coordinates at
+    the c5 lattice offset) with exactly one 45-degree diagonal per occupied
+    cell.  The diagonal orientation in c5 is 50/50 and has no recoverable
+    spatial rule, so a fixed-seed random choice is used here.  The orthogonal
+    edges are generated once per cell boundary and the diagonals once per cell.
+    """
     minx, miny, maxx, maxy = bounds
-    xs = np.arange(minx, maxx + spacing, spacing)
-    ys = np.arange(miny, maxy + spacing, spacing)
+    start_x = math.floor(minx / spacing) * spacing
+    start_y = math.floor(miny / spacing) * spacing
+    xs = np.arange(start_x, maxx + spacing, spacing)
+    ys = np.arange(start_y, maxy + spacing, spacing)
     segments: list[LineString] = []
     for x in xs:
         for y0, y1 in zip(ys[:-1], ys[1:], strict=False):
@@ -328,6 +347,13 @@ def _grid_segments(bounds: tuple[float, float, float, float], spacing: float) ->
     for y in ys:
         for x0, x1 in zip(xs[:-1], xs[1:], strict=False):
             segments.append(LineString([(float(x0), float(y)), (float(x1), float(y))]))
+    rng = random.Random(diagonal_seed)
+    for x0, x1 in zip(xs[:-1], xs[1:], strict=False):
+        for y0, y1 in zip(ys[:-1], ys[1:], strict=False):
+            if rng.random() < 0.5:
+                segments.append(LineString([(float(x0), float(y0)), (float(x1), float(y1))]))
+            else:
+                segments.append(LineString([(float(x0), float(y1)), (float(x1), float(y0))]))
     return segments
 
 
@@ -643,7 +669,7 @@ def build(args: argparse.Namespace) -> dict:
 
     # Potential grid.  4 km is the default because it produces roughly the
     # same new-road length as the c5 sample (about 7,000 km) on TSA 23.
-    grid = _grid_segments(bounds, args.grid_spacing)
+    grid = _grid_segments(bounds, args.grid_spacing, diagonal_seed=args.grid_diagonal_seed)
     grid = [line for line in grid if aoi_mask.line_midpoint(line)]
     LOG.info("grid raw: %d pieces, %.1f km", len(grid), sum(line.length for line in grid) / 1000)
 
@@ -779,9 +805,19 @@ def build(args: argparse.Namespace) -> dict:
             "link_distance_m": block_nearest["distance_m"].astype(float).values,
         }
     )
-    linkages["routed"] = linkages["link_distance_m"] <= args.max_block_link_distance
+    if args.max_block_link_distance > 0:
+        linkages["routed"] = linkages["link_distance_m"] <= args.max_block_link_distance
+    else:
+        # The c5 sample links every block to its nearest node; no arbitrary
+        # distance cap.  Keep the distance in the report so outliers are visible.
+        linkages["routed"] = True
     linked = linkages[linkages["routed"]].copy()
-    LOG.info("blocks: %d linked within %.0f m, %d no linkage", len(linked), args.max_block_link_distance, len(linkages) - len(linked))
+    LOG.info(
+        "blocks: %d linked, %d by the current distance rule (%s)",
+        len(linked),
+        len(linkages) - len(linked),
+        "no cap" if args.max_block_link_distance <= 0 else f"{args.max_block_link_distance:.0f} m",
+    )
 
     # Component reachability on the final network.
     final_components = _union_find_components(all_segments, int(all_vertices.vertex_id.max()))
@@ -925,8 +961,14 @@ def build(args: argparse.Namespace) -> dict:
         },
         "linkage": {
             "blocks": int(len(linkage_status)),
-            "linked_within_m": float(args.max_block_link_distance),
-            "linked_blocks": int(linkages_out["link_distance_m"].le(args.max_block_link_distance).sum()),
+            "linked_within_m": (
+                None if args.max_block_link_distance <= 0 else float(args.max_block_link_distance)
+            ),
+            "linked_blocks": (
+                int(len(linkages_out))
+                if args.max_block_link_distance <= 0
+                else int(linkages_out["link_distance_m"].le(args.max_block_link_distance).sum())
+            ),
             "routed_blocks": int(linkage_status["routed"].sum()),
             "no_route_or_no_linkage": int((~linkage_status["routed"]).sum()),
             "link_distance_m": {
@@ -963,7 +1005,8 @@ def main(argv: Iterable[str] | None = None) -> int:
     parser.add_argument("--blocks", type=Path, default=DEFAULT_BLOCKS)
     parser.add_argument("--source-dir", type=Path, default=DEFAULT_SOURCE)
     parser.add_argument("--out-dir", type=Path, default=DEFAULT_OUT)
-    parser.add_argument("--grid-spacing", type=float, default=4000.0)
+    parser.add_argument("--grid-spacing", type=float, default=600.0)
+    parser.add_argument("--grid-diagonal-seed", type=int, default=2025)
     parser.add_argument("--aoi-resolution", type=float, default=50.0)
     parser.add_argument("--existing-buffer", type=float, default=30.0)
     parser.add_argument("--impassable-buffer", type=float, default=10.0)
@@ -974,7 +1017,12 @@ def main(argv: Iterable[str] | None = None) -> int:
     parser.add_argument("--paved-tie", type=float, default=25.0)
     parser.add_argument("--max-mill-distance", type=float, default=5000.0)
     parser.add_argument("--mill-access-buffer", type=float, default=15000.0)
-    parser.add_argument("--max-block-link-distance", type=float, default=3000.0)
+    parser.add_argument(
+        "--max-block-link-distance",
+        type=float,
+        default=0.0,
+        help="0 means nearest-vertex linkage with no distance cap (c5 behaviour).",
+    )
     parser.add_argument("--log-level", default="INFO")
     args = parser.parse_args(argv)
     logging.basicConfig(
