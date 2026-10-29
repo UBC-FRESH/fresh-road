@@ -886,8 +886,14 @@ def build(args: argparse.Namespace) -> dict:
             "mill_features": len(mills),
         },
         "existing": {
-            "paved_km": float(paved.geometry.length.sum() / 1000.0),
-            "resource_km": float(ften.geometry.length.sum() / 1000.0),
+            "paved_km": float(
+                segments_out.loc[segments_out.source_kind == "existing_paved", "length_m"].sum() / 1000.0
+            ),
+            "resource_km": float(
+                segments_out.loc[segments_out.source_kind == "existing_resource", "length_m"].sum() / 1000.0
+            ),
+            "source_paved_km": float(paved.geometry.length.sum() / 1000.0),
+            "source_resource_km": float(ften.geometry.length.sum() / 1000.0),
             "segments": int((segments_out.source_kind != "potential").sum()),
             "length_km": float(segments_out.loc[segments_out.source_kind != "potential", "length_m"].sum() / 1000.0),
         },

@@ -1,6 +1,6 @@
 {
   "schema": "fresh.road.network.summary.v1",
-  "generated_utc": "2026-10-29T01:52:51.764231+00:00",
+  "generated_utc": "2026-10-29T01:55:57.533229+00:00",
   "aoi": {
     "blocks": 102128,
     "area_ha": 988816.34438895,
@@ -21,8 +21,10 @@
     "mill_features": 13
   },
   "existing": {
-    "paved_km": 612.5254022593691,
-    "resource_km": 7513.095698021543,
+    "paved_km": 474.8545032840796,
+    "resource_km": 5918.975792734744,
+    "source_paved_km": 612.5254022593691,
+    "source_resource_km": 7513.095698021543,
     "segments": 13151,
     "length_km": 6393.830296018824
   },
@@ -171,5 +173,5 @@
     "block_vertices": 102128,
     "note": "loaded with ws4.roads.network.RouteNetwork.from_tables; no WS4 code changed"
   },
-  "elapsed_seconds": 130.08601808547974
+  "elapsed_seconds": 133.02082300186157
 }
