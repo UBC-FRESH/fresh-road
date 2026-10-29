@@ -69,8 +69,10 @@ construction ladder.  See [`../../docs/cost-sources.md`](../../docs/cost-sources
 | Blocks with no linkage | 2,587 |
 
 The 2,587 unlinked blocks are farther than 3 km from the nearest network vertex;
-they are not called “no access.”  They are reported as `no_linkage` in the
-linkage table.
+they are not called “no access.”  They are reported as `no_linkage` in
+`block_linkage_status.csv` and are deliberately **not** written to
+`route_fixture/linkages.csv`, so WS4 cannot route them from a nearest-vertex
+fallback.
 
 ## Files
 
@@ -79,6 +81,8 @@ linkage table.
 - `build_network.py` — network assembly and WS4 table writer.
 - `route_fixture/` — the four WS4 tables:
   `segments.csv`, `vertices.csv`, `destinations.csv`, `linkages.csv`.
+- `block_linkage_status.csv` — every block, including the 2,587 `no_linkage`
+  rows that are omitted from the WS4 linkage table.
 - `network.gpkg` — inspection layer with one row per segment variant.
 - `summary.json` — machine-readable build summary.
 - `source_manifest.json` — WFS type names and feature counts.

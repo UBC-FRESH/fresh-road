@@ -1,6 +1,6 @@
 {
   "schema": "fresh.road.network.summary.v1",
-  "generated_utc": "2026-10-29T01:55:57.533229+00:00",
+  "generated_utc": "2026-10-29T02:01:36.019342+00:00",
   "aoi": {
     "blocks": 102128,
     "area_ha": 988816.34438895,
@@ -116,7 +116,8 @@
       "median": 707.044272758839,
       "p90": 1790.1087729512906,
       "max": 10997.982312021686
-    }
+    },
+    "status_file": "block_linkage_status.csv"
   },
   "costs": {
     "existing": {
@@ -170,8 +171,8 @@
     "segments": 25159,
     "vertices_with_coordinates": 13321,
     "destinations": 3,
-    "block_vertices": 102128,
+    "block_vertices": 99541,
     "note": "loaded with ws4.roads.network.RouteNetwork.from_tables; no WS4 code changed"
   },
-  "elapsed_seconds": 133.02082300186157
+  "elapsed_seconds": 133.82130575180054
 }

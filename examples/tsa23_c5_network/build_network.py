@@ -817,7 +817,13 @@ def build(args: argparse.Namespace) -> dict:
     ].copy()
     vertices_out = all_vertices[["vertex_id", "x", "y"]].copy()
     destinations_out = destinations_frame[["name", "vertex_id"]].copy()
-    linkages_out = linkages[["block_id", "vertex_id", "link_distance_m", "routed"]].copy()
+    linkage_status = linkages[["block_id", "vertex_id", "link_distance_m", "routed"]].copy()
+    linkage_status["status"] = np.where(linkage_status["routed"], "routed", "no_linkage")
+    # WS4 must not receive a row for an unlinked block.  Keep the full status
+    # table as a separate report so 2,587 blocks are not silently routed.
+    linkages_out = linkage_status[linkage_status["routed"]][
+        ["block_id", "vertex_id", "link_distance_m"]
+    ].copy()
 
     fixture = out / "route_fixture"
     fixture.mkdir(parents=True, exist_ok=True)
@@ -825,6 +831,7 @@ def build(args: argparse.Namespace) -> dict:
     vertices_out.to_csv(fixture / "vertices.csv", index=False)
     destinations_out.to_csv(fixture / "destinations.csv", index=False)
     linkages_out.to_csv(fixture / "linkages.csv", index=False)
+    linkage_status.to_csv(out / "block_linkage_status.csv", index=False)
 
     # A compact spatial layer for inspection (not the WS4 input).
     road_table = segments_out.merge(
@@ -916,17 +923,18 @@ def build(args: argparse.Namespace) -> dict:
             "class_summary": class_summary,
         },
         "linkage": {
-            "blocks": len(linkages_out),
+            "blocks": int(len(linkage_status)),
             "linked_within_m": float(args.max_block_link_distance),
             "linked_blocks": int(linkages_out["link_distance_m"].le(args.max_block_link_distance).sum()),
-            "routed_blocks": int(linkages_out["routed"].sum()),
-            "no_route_or_no_linkage": int((~linkages_out["routed"]).sum()),
+            "routed_blocks": int(linkage_status["routed"].sum()),
+            "no_route_or_no_linkage": int((~linkage_status["routed"]).sum()),
             "link_distance_m": {
-                "min": float(linkages_out["link_distance_m"].min()),
-                "median": float(linkages_out["link_distance_m"].median()),
-                "p90": float(linkages_out["link_distance_m"].quantile(0.9)),
-                "max": float(linkages_out["link_distance_m"].max()),
+                "min": float(linkage_status["link_distance_m"].min()),
+                "median": float(linkage_status["link_distance_m"].median()),
+                "p90": float(linkage_status["link_distance_m"].quantile(0.9)),
+                "max": float(linkage_status["link_distance_m"].max()),
             },
+            "status_file": "block_linkage_status.csv",
         },
         "costs": {
             "existing": EXISTING_COSTS,
