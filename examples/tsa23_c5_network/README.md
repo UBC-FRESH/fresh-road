@@ -158,6 +158,20 @@ merchantable volume.
 - `ws4_report/route.yaml`, `build_report.py`, and the report outputs.
 - `ws4_sim/` — actual simulation runs and comparison.
 
+## Handoff and operational evidence
+
+The TSA 23 instance now owns the promoted route config:
+
+- `femic-tsa23-instance/config/ws4/route_c5.yaml`
+- `femic-tsa23-instance/reports/ws4-c5-network-handoff.md`
+- `femic-tsa23-instance/reports/ws4-route-c5-risk-final.md`
+- `femic-tsa23-instance/reports/ws4-road-aware-opt.md`
+
+The route tables themselves live in the instance's ignored
+`runtime/ws4/roads_c5/`; the `fresh-road` fixture is the source copy.  The
+c5 network is the active planned network; the older DRA-only examples remain
+exploratory and are not the access baseline.
+
 ## Run
 
 ```bash
