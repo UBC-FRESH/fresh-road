@@ -74,6 +74,39 @@ they are not called “no access.”  They are reported as `no_linkage` in
 `route_fixture/linkages.csv`, so WS4 cannot route them from a nearest-vertex
 fallback.
 
+## WS4 report-only routing
+
+`ws4_report/route.yaml` is a standard WS4 route configuration for the four
+route tables.  `ws4_report/build_report.py` loads it through
+`ws4.roads.accounts.load_route_config`, assigns every linked block to its
+least-haul-cost mill, and writes:
+
+- `ws4_report/block_routes.csv`
+- `ws4_report/summary.json`
+
+Result:
+
+| Metric | Value |
+|---|---:|
+| Blocks routed | 99,541 / 102,128 |
+| No-linkage blocks | 2,587 |
+| Mills used | 3 |
+| Destination split | 42,030 / 30,343 / 27,168 |
+| Median route length, nearest mill | 57.2 km |
+| Median route length to `MILL_95_LBR` | 74.2 km |
+| Median haul cost | 4.02 CAD/m³ |
+| Unique used segments | 12,533 |
+| Unique used length | 8,830 km |
+| Unique used build exposure | 12.56 M CAD |
+
+Against the DRA-only baseline, 96,799 routed blocks match.  The median
+nearest-mill route is 99.7 m shorter than the DRA-only route; forcing every
+block to `MILL_95_LBR` is 9.5 km longer at the median because the network also
+serves the two other 100 Mile House mills.
+
+This is report-only.  No WS4 objective, constraint, growth, solver, or compiled
+dataset was changed.
+
 ## Files
 
 - `fetch_public_data.py` — reproducible BCGW WFS fetch (large files go to
@@ -86,6 +119,7 @@ fallback.
 - `network.gpkg` — inspection layer with one row per segment variant.
 - `summary.json` — machine-readable build summary.
 - `source_manifest.json` — WFS type names and feature counts.
+- `ws4_report/route.yaml`, `build_report.py`, and the report outputs.
 
 ## Run
 

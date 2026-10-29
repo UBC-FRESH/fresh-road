@@ -1,0 +1,16 @@
+# Report-only WS4 configuration for the TSA 23 c5-style network.
+# No objective, constraint, growth, solver, or compiled dataset is changed.
+route:
+  segments: ../route_fixture/segments.csv
+  vertices: ../route_fixture/vertices.csv
+  destinations: ../route_fixture/destinations.csv
+  linkages: ../route_fixture/linkages.csv
+  initial_roads: all
+
+route_accounts:
+  - {destination: destination.MILL_95_LBR, kind: haul, account: route.Mill_95_LBR.haul}
+  - {destination: destination.MILL_694_LGH, kind: haul, account: route.Mill_694_LGH.haul}
+  - {destination: destination.MILL_733_LGH, kind: haul, account: route.Mill_733_LGH.haul}
+  - {destination: destination.MILL_95_LBR, kind: volume, account: product.Mill_95_LBR.Yield}
+  - {destination: destination.MILL_694_LGH, kind: volume, account: product.Mill_694_LGH.Yield}
+  - {destination: destination.MILL_733_LGH, kind: volume, account: product.Mill_733_LGH.Yield}

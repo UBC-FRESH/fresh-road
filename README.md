@@ -144,7 +144,9 @@ The planned WS4 road network is
 
 Result: 25,159 segments, 13,321 vertices, one connected component, 99,541 of
 102,128 blocks linked and routed. The 2,587 unlinked blocks are reported as
-`no_linkage`, not as “no access.”
+`no_linkage`, not as “no access.” The report-only WS4 route test in
+`examples/tsa23_c5_network/ws4_report/` gives a median 57.2 km route to the
+nearest mill; no WS4 objective or solver code is changed.
 
 See the example README and [`docs/cost-sources.md`](docs/cost-sources.md) for
 the exact source and cost caveats.

@@ -1,0 +1,77 @@
+{
+  "schema": "fresh.ws4.c5-route-report.v1",
+  "scope": "report-only; no WS4 objective, constraint, solver, or growth change",
+  "route_config": "/srv/shared-data/gep/ws4/fresh-road/examples/tsa23_c5_network/ws4_report/route.yaml",
+  "network": {
+    "segments": 25159,
+    "vertices": 13321,
+    "destinations": 3,
+    "linked_blocks": 99541
+  },
+  "routing": {
+    "total_blocks": 102128,
+    "routed_blocks": 99541,
+    "no_linkage_blocks": 2587,
+    "unrouted_linked_blocks": 0,
+    "destination_counts": {
+      "destination.MILL_95_LBR": 42030,
+      "destination.MILL_694_LGH": 30343,
+      "destination.MILL_733_LGH": 27168
+    },
+    "route_length_m": {
+      "min": 0.0,
+      "median": 57169.065032585095,
+      "p90": 94471.93471579287,
+      "max": 147669.3676697771
+    },
+    "route_95_length_m": {
+      "min": 0.0,
+      "median": 74151.36900818469,
+      "p90": 110406.80654162465,
+      "max": 175013.074694681
+    },
+    "haul_cost_per_m3": {
+      "min": 0.0,
+      "median": 4.0200000000000005,
+      "p90": 5.84,
+      "max": 52.120000000000005
+    },
+    "build_cost_cad_per_route": {
+      "min": 0.0,
+      "median": 135000.0,
+      "p90": 230000.0,
+      "max": 295000.0
+    },
+    "maintain_cost_cad_per_route": {
+      "min": 0.0,
+      "median": 66000.0,
+      "p90": 100000.0,
+      "max": 374000.0
+    },
+    "segment_count_per_route": {
+      "min": 0.0,
+      "median": 35.0,
+      "p90": 53.0,
+      "max": 191.0
+    }
+  },
+  "unique_used_network": {
+    "segments": 12533,
+    "length_km": 8830.437758144673,
+    "build_cost_cad": 12555000.0,
+    "note": "build cost is the sum over distinct used segments; route-level build_cost repeats shared segments."
+  },
+  "dra_comparison": {
+    "dra_report": "/srv/shared-data/gep/ws4/fresh-road/examples/tsa23_full_route/route_lengths_full.csv",
+    "dra_routed_blocks": 99335,
+    "matched_routed_blocks": 96799,
+    "c5_routed_matched": 96799,
+    "median_c5_minus_dra_m": -99.70973200367735,
+    "p90_c5_minus_dra_m": 15149.412901674485,
+    "median_c5_to_95_minus_dra_m": 9524.828921302324
+  },
+  "files": {
+    "block_routes": "block_routes.csv",
+    "route_config": "/srv/shared-data/gep/ws4/fresh-road/examples/tsa23_c5_network/ws4_report/route.yaml"
+  }
+}
