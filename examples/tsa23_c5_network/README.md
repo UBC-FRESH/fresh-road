@@ -116,6 +116,32 @@ or mill-demand allocation.  No product-specific eligibility table is invented.
 This is report-only.  No WS4 objective, constraint, growth, solver, or compiled
 dataset was changed.
 
+## WS4 simulation pass
+
+`ws4_sim/` runs the same compiled TSA 23 dataset and `schedule_baseline.csv`
+(2,000 blocks, 5 years) three ways: no route model, DRA route fixture, and the
+c5 network.  No objective, constraint, growth, or solver code is changed.
+
+| Metric | DRA | c5 |
+|---|---:|---:|
+| Routed ledger volume | 5,090,935 | 5,280,492 |
+| Unrouted ledger volume | 189,557 | 0 |
+| Unrouted blocks | 36 | 0 |
+| Average haul distance | 129.63 km | 44.66 km |
+| Build expense | 0 | 28.98 M CAD |
+| Haul expense | 0 | 21.67 M CAD |
+| Maintenance expense | 0 | 11.73 M CAD |
+| Total route expense | 0 | 62.38 M CAD |
+
+The no-road and routed runs have identical product account values.  The DRA
+fixture is route-length-only; its zero costs are not a cost baseline.  The c5
+route report averages are 5.489 CAD/m³ build, 4.104 CAD/m³ haul, and 2.221
+CAD/m³ maintenance.
+
+The destination split remains a least-haul assignment, not product eligibility
+or mill demand.  Ledger volume is the sum of routed product rows, not
+merchantable volume.
+
 ## Files
 
 - `fetch_public_data.py` — reproducible BCGW WFS fetch (large files go to
@@ -130,6 +156,7 @@ dataset was changed.
 - `summary.json` — machine-readable build summary.
 - `source_manifest.json` — WFS type names and feature counts.
 - `ws4_report/route.yaml`, `build_report.py`, and the report outputs.
+- `ws4_sim/` — actual simulation runs, DRA baseline config, and comparison.
 
 ## Run
 

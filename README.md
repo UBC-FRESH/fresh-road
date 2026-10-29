@@ -146,7 +146,10 @@ Result: 465,263 segments, 72,299 vertices, one connected component, and all
 102,128 blocks linked and routed. The potential grid is the c5-style 600 m
 lattice with one diagonal per cell, not a 4 km lattice. The report-only WS4
 route test in `examples/tsa23_c5_network/ws4_report/` gives a median 44.5 km
-route to the nearest mill; no WS4 objective or solver code is changed.
+route to the nearest mill; the actual simulation pass in
+`examples/tsa23_c5_network/ws4_sim/` routes all scheduled volume and leaves 0
+blocks unrouted versus 36 for the DRA fixture. No WS4 objective or solver code
+is changed.
 
 See the example README and [`docs/cost-sources.md`](docs/cost-sources.md) for
 the exact source and cost caveats.
