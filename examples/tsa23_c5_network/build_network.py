@@ -483,6 +483,7 @@ def _add_segment_costs(
     rows: list[dict] = []
     next_id = 1
     for row in segments.itertuples(index=False):
+        length_km = float(row.length_m) / 1000.0
         if row.source_kind == "potential":
             for class_name, costs in POTENTIAL_COSTS.items():
                 rows.append(
@@ -491,9 +492,9 @@ def _add_segment_costs(
                         "from_vertex": row.from_vertex,
                         "to_vertex": row.to_vertex,
                         "length_m": row.length_m,
-                        "build_cost": costs["build"],
-                        "maintain_cost": costs["maintain"],
-                        "haul_cost": costs["haul"],
+                        "build_cost": costs["build"] * length_km,
+                        "maintain_cost": costs["maintain"] * length_km,
+                        "haul_cost": costs["haul"] * length_km,
                         "road_type": class_name,
                         "source_kind": "potential",
                     }
@@ -507,9 +508,9 @@ def _add_segment_costs(
                     "from_vertex": row.from_vertex,
                     "to_vertex": row.to_vertex,
                     "length_m": row.length_m,
-                    "build_cost": costs["build"],
-                    "maintain_cost": costs["maintain"],
-                    "haul_cost": costs["haul"],
+                    "build_cost": costs["build"] * length_km,
+                    "maintain_cost": costs["maintain"] * length_km,
+                    "haul_cost": costs["haul"] * length_km,
                     "road_type": row.road_type,
                     "source_kind": row.source_kind,
                 }

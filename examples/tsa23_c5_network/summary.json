@@ -1,6 +1,6 @@
 {
   "schema": "fresh.road.network.summary.v1",
-  "generated_utc": "2026-10-29T02:01:36.019342+00:00",
+  "generated_utc": "2026-10-29T02:54:22.095326+00:00",
   "aoi": {
     "blocks": 102128,
     "area_ha": 988816.34438895,
@@ -174,5 +174,5 @@
     "block_vertices": 99541,
     "note": "loaded with ws4.roads.network.RouteNetwork.from_tables; no WS4 code changed"
   },
-  "elapsed_seconds": 133.82130575180054
+  "elapsed_seconds": 144.85688757896423
 }

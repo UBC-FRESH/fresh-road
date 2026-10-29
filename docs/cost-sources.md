@@ -86,6 +86,10 @@ classes.
 | class_3 | 5000 | 2000 | 0.32 |
 | class_4 | 5000 | 500 | 0.255078 |
 
+The table lists per-kilometre coefficients.  WS4 stores total segment costs, so
+each segment's `build_cost`, `maintain_cost`, and `haul_cost` are the per-km
+coefficient multiplied by `length_m / 1000`.
+
 The shared construction cost is an explicit source limitation.  The c5 sample
 cannot justify four different new-road construction costs.  The four variants
 are a service-class emulation, not four engineering cost standards.

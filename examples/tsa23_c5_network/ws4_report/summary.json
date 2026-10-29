@@ -14,51 +14,51 @@
     "no_linkage_blocks": 2587,
     "unrouted_linked_blocks": 0,
     "destination_counts": {
-      "destination.MILL_95_LBR": 42030,
-      "destination.MILL_694_LGH": 30343,
-      "destination.MILL_733_LGH": 27168
+      "destination.MILL_733_LGH": 55321,
+      "destination.MILL_694_LGH": 28622,
+      "destination.MILL_95_LBR": 15598
     },
     "route_length_m": {
       "min": 0.0,
-      "median": 57169.065032585095,
-      "p90": 94471.93471579287,
-      "max": 147669.3676697771
+      "median": 52580.54179372795,
+      "p90": 89334.16409142145,
+      "max": 117778.31591312571
     },
     "route_95_length_m": {
       "min": 0.0,
-      "median": 74151.36900818469,
-      "p90": 110406.80654162465,
-      "max": 175013.074694681
+      "median": 62388.19563107192,
+      "p90": 99312.5980085108,
+      "max": 128090.05171148712
     },
     "haul_cost_per_m3": {
       "min": 0.0,
-      "median": 4.0200000000000005,
-      "p90": 5.84,
-      "max": 52.120000000000005
+      "median": 5.473466063726939,
+      "p90": 8.742939468490468,
+      "max": 12.290445562575771
     },
     "build_cost_cad_per_route": {
       "min": 0.0,
-      "median": 135000.0,
-      "p90": 230000.0,
-      "max": 295000.0
+      "median": 185788.62741800025,
+      "p90": 348329.297785426,
+      "max": 549821.7315334524
     },
     "maintain_cost_cad_per_route": {
       "min": 0.0,
-      "median": 66000.0,
-      "p90": 100000.0,
-      "max": 374000.0
+      "median": 83749.44393685042,
+      "p90": 147738.40136727024,
+      "max": 231403.4301996921
     },
     "segment_count_per_route": {
       "min": 0.0,
-      "median": 35.0,
-      "p90": 53.0,
-      "max": 191.0
+      "median": 70.0,
+      "p90": 101.0,
+      "max": 212.0
     }
   },
   "unique_used_network": {
-    "segments": 12533,
-    "length_km": 8830.437758144673,
-    "build_cost_cad": 12555000.0,
+    "segments": 12728,
+    "length_km": 8185.673689407652,
+    "build_cost_cad": 17016103.728225533,
     "note": "build cost is the sum over distinct used segments; route-level build_cost repeats shared segments."
   },
   "dra_comparison": {
@@ -66,9 +66,9 @@
     "dra_routed_blocks": 99335,
     "matched_routed_blocks": 96799,
     "c5_routed_matched": 96799,
-    "median_c5_minus_dra_m": -99.70973200367735,
-    "p90_c5_minus_dra_m": 15149.412901674485,
-    "median_c5_to_95_minus_dra_m": 9524.828921302324
+    "median_c5_minus_dra_m": -4321.04092152699,
+    "p90_c5_minus_dra_m": 9141.656952734993,
+    "median_c5_to_95_minus_dra_m": 2367.7663178041767
   },
   "files": {
     "block_routes": "block_routes.csv",

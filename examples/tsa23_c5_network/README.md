@@ -49,6 +49,10 @@ come from c5 P/S/T/N:
 | class_3 | 5000 | 2000 | 0.32 |
 | class_4 | 5000 | 500 | 0.255078 |
 
+The table lists coefficients per kilometre.  WS4 stores total segment costs, so
+each segment's `build_cost`, `maintain_cost`, and `haul_cost` are the per-km
+coefficient multiplied by `length_m / 1000`.
+
 This is an explicit limitation, not a claim that c5 contains a four-way
 construction ladder.  See [`../../docs/cost-sources.md`](../../docs/cost-sources.md).
 
@@ -91,18 +95,21 @@ Result:
 | Blocks routed | 99,541 / 102,128 |
 | No-linkage blocks | 2,587 |
 | Mills used | 3 |
-| Destination split | 42,030 / 30,343 / 27,168 |
-| Median route length, nearest mill | 57.2 km |
-| Median route length to `MILL_95_LBR` | 74.2 km |
-| Median haul cost | 4.02 CAD/m³ |
-| Unique used segments | 12,533 |
-| Unique used length | 8,830 km |
-| Unique used build exposure | 12.56 M CAD |
+| Destination split (733 / 694 / 95) | 55,321 / 28,622 / 15,598 |
+| Median route length, nearest mill | 52.6 km |
+| Median route length to `MILL_95_LBR` | 62.4 km |
+| Median haul cost | 5.47 CAD/m³ |
+| Unique used segments | 12,728 |
+| Unique used length | 8,186 km |
+| Unique used build exposure | 17.02 M CAD |
 
 Against the DRA-only baseline, 96,799 routed blocks match.  The median
-nearest-mill route is 99.7 m shorter than the DRA-only route; forcing every
-block to `MILL_95_LBR` is 9.5 km longer at the median because the network also
-serves the two other 100 Mile House mills.
+nearest-mill route is 4.32 km shorter than the DRA-only route because the
+network serves three mills; forcing every block to `MILL_95_LBR` is 2.37 km
+longer at the median.
+
+The destination split is a **least-haul assignment**, not a product-eligibility
+or mill-demand allocation.  No product-specific eligibility table is invented.
 
 This is report-only.  No WS4 objective, constraint, growth, solver, or compiled
 dataset was changed.
