@@ -52,37 +52,53 @@ Source:
 - `access.shp` (`RDTYPE`, `BUILD_KM`, `MAINT_KM`, `HAUL_MKM`)
 - `segments.csv`, `vertices.csv`, `destinations.csv`, `linkages.csv`
 
-Cost table from `HaulCost.xlsx`:
+Cost table used by the build (c5 sample fields):
 
-| Type | Construction CAD/km | Maintain CAD/km/period | Haul speed km/h | Haul CAD/m3/km |
+| Type | Construction CAD/km | Maintain CAD/km/period | Haul speed km/h | Haul CAD/m³/km |
 |---|---:|---:|---:|---:|
 | H | 0 | 0 | 90 | 0.06 |
 | P | 0 | 2000 | 54 | 0.10 |
 | S | 0 | 2000 | 33.75 | 0.16 |
-| T | 0 | 2000 | 20 | 0.27 |
+| T | 0 | 2000 | 20 | 0.32 |
 | N | 5000 | 500 | 21.17 | 0.255078 |
+
+The c5 `HaulCost.xlsx` workbook gives T haul as 0.27, but the delivered c5
+`access.shp`/`segments.csv` fields use **0.32**.  This build uses the delivered
+field value, which is what the c5 route fixture carries.
 
 The c5 sample has one new-road type (`N`) and four existing-road types
 (`H/P/S/T`). It does **not** contain four independently sourced potential-road
 classes.
 
-## Mapping decision
+## Implemented mapping
 
 - Existing roads: build cost **0**.
-- Existing road maintenance/haul: c5 `H/P/S/T` values by source road class.
-- Potential grid roads: use the c5 `N` construction/maintenance/haul
-  coefficients, not invented values.
-- If four class-1/2/3/4 potential variants are required, the class mapping
-  must be supplied explicitly or derived from a published BC source. The c5
-  sample alone cannot justify four different new-road cost sets.
+- Existing paved DRA roads: `H/P/S` from `ROAD_CLASS`; FTEN resource roads:
+  `S` for Forest Service Roads, `T` for Road Permits.
+- Potential grid roads: every edge is emitted once per class.  All four classes
+  use the c5 `N` construction coefficient; maintenance/haul come from the c5
+  `P/S/T/N` rows:
 
-## TSA 23 data still needed
+| Potential class | Build CAD/km | Maintain CAD/km/period | Haul CAD/m³/km |
+|---|---:|---:|---:|
+| class_1 | 5000 | 2000 | 0.10 |
+| class_2 | 5000 | 2000 | 0.16 |
+| class_3 | 5000 | 2000 | 0.32 |
+| class_4 | 5000 | 500 | 0.255078 |
 
-- supply block for IAM road group (4 vs 8)
-- slope percentage by segment
-- BEC zone/subzone flags
-- long-term vs short-term road flag
-- RMG L vs M
-- road permit / resource-road status for existing roads
+The shared construction cost is an explicit source limitation.  The c5 sample
+cannot justify four different new-road construction costs.  The four variants
+are a service-class emulation, not four engineering cost standards.
 
-These are data joins, not model invention. Do not replace them with guesses.
+## TSA 23 implementation status
+
+The current c5-style network uses the c5 coefficients above and does **not**
+apply the IAM subgrade equations.  The IAM source is recorded for a future
+new-road costing layer; applying it needs segment slope, BEC flags, long-term
+status, and the TSA 23 supply-block/RMG decision.  Those joins are not
+invented in the current build.
+
+Existing FTEN statuses used: `ACTIVE` and `PENDING`.  Retired road sections are
+excluded.  The three 100 Mile House operating mills are within 5 km of the TSA
+23 AOI; the seven Williams Lake operating mills are 25–36 km outside it and are
+not TSA 23 destinations in this build.

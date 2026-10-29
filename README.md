@@ -10,8 +10,10 @@ invent a new road detector, a new passability model, or a new optimizer input.
 
 Status: `0.1.0a1` alpha / pilot.
 
-**Important:** the TSA 23 route examples are exploratory DRA-only tests. They
-are not the planned WS4 paved/resource/grid road network.
+**Important:** the TSA 23 `tsa23_route`, `tsa23_mill_route`, and
+`tsa23_full_route` examples are exploratory DRA-only tests. They are not the
+planned WS4 paved/resource/grid road network. The planned c5-style network is
+in [`examples/tsa23_c5_network/`](examples/tsa23_c5_network/).
 
 ## Why it exists
 
@@ -128,6 +130,24 @@ West Fraser 100 Mile House mill (`MILL_ID 95`) as a destination. 727/729 blocks
 route to the mill; median route length is 6,550 m. Cost columns remain zero, so
 this is route-length only, not an optimization input. A larger no-destination
 topology fixture is also under `examples/tsa23_route/`.
+
+### TSA 23 c5-style network
+
+The planned WS4 road network is
+[`examples/tsa23_c5_network/`](examples/tsa23_c5_network/). It includes:
+
+- paved public DRA roads and active/pending FTEN resource roads;
+- three operating 100 Mile House mill destinations;
+- a 4 km potential grid clipped to the TSA 23 stand extent;
+- four identical-geometry potential class variants per grid edge;
+- build cost 0 on existing roads and c5 maintenance/haul coefficients.
+
+Result: 25,159 segments, 13,321 vertices, one connected component, 99,541 of
+102,128 blocks linked and routed. The 2,587 unlinked blocks are reported as
+`no_linkage`, not as “no access.”
+
+See the example README and [`docs/cost-sources.md`](docs/cost-sources.md) for
+the exact source and cost caveats.
 
 ### FHOPS
 

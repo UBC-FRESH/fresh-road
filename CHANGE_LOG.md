@@ -8,4 +8,6 @@
 - Added JSON/CSV ingestion from an ALSroads GPKG.
 - Added a TFL 6 pilot on one LidarBC point-cloud/DEM tile and four DRA segments.
 - Recorded `class_4` as a source state, not an operational "closed" label.
+- Added the TSA 23 c5-style paved/resource/potential grid network, with build
+  cost 0 on existing roads and c5 maintenance/haul coefficients by class.
 - No WS4/FHOPS routing, cost, objective, constraint, or solver changes.

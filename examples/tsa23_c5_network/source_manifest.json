@@ -1,0 +1,44 @@
+{
+  "schema": "fresh.road.network.source.v1",
+  "wfs_url": "https://openmaps.gov.bc.ca/geo/pub/ows",
+  "bbox_epsg3005": [
+    1257304.28,
+    666240.34,
+    1399277.69,
+    814135.85
+  ],
+  "blocks": "/srv/shared-data/gep/iversen-jamie-msc-thesis/femic-tsa23-instance/runtime/gis/tsa23_blocks.geojson",
+  "block_count": 102128,
+  "layers": {
+    "dra_roads": {
+      "type_name": "pub:WHSE_BASEMAPPING.DRA_DGTL_ROAD_ATLAS_MPAR_SP",
+      "feature_count": 85156,
+      "local_path": "/srv/shared-data/gep/ws4/fresh-road/examples/tsa23_c5_network/runtime/source/dra_roads.gpkg"
+    },
+    "ften_roads": {
+      "type_name": "pub:WHSE_FOREST_TENURE.FTEN_ROAD_SECTION_LINES_SVW",
+      "feature_count": 16012,
+      "local_path": "/srv/shared-data/gep/ws4/fresh-road/examples/tsa23_c5_network/runtime/source/ften_roads.gpkg"
+    },
+    "lakes": {
+      "type_name": "pub:WHSE_BASEMAPPING.FWA_LAKES_POLY",
+      "feature_count": 17311,
+      "local_path": "/srv/shared-data/gep/ws4/fresh-road/examples/tsa23_c5_network/runtime/source/lakes.gpkg"
+    },
+    "rivers": {
+      "type_name": "pub:WHSE_BASEMAPPING.FWA_RIVERS_POLY",
+      "feature_count": 107,
+      "local_path": "/srv/shared-data/gep/ws4/fresh-road/examples/tsa23_c5_network/runtime/source/rivers.gpkg"
+    },
+    "protected_areas": {
+      "type_name": "pub:WHSE_TANTALIS.TA_PARK_ECORES_PA_SVW",
+      "feature_count": 44,
+      "local_path": "/srv/shared-data/gep/ws4/fresh-road/examples/tsa23_c5_network/runtime/source/protected_areas.gpkg"
+    },
+    "mills": {
+      "type_name": "pub:WHSE_IMAGERY_AND_BASE_MAPS.GSR_TMBR_PRCSSING_FAC_SV",
+      "feature_count": 13,
+      "local_path": "/srv/shared-data/gep/ws4/fresh-road/examples/tsa23_c5_network/runtime/source/mills.gpkg"
+    }
+  }
+}
