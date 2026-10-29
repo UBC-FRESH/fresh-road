@@ -138,7 +138,7 @@ The planned WS4 road network is
 
 - paved public DRA roads and active/pending FTEN resource roads;
 - three operating 100 Mile House mill destinations;
-- a 4 km potential grid clipped to the TSA 23 stand extent;
+- a 600 m potential grid clipped to the TSA 23 stand extent;
 - four identical-geometry potential class variants per grid edge;
 - build cost 0 on existing roads and c5 maintenance/haul coefficients.
 

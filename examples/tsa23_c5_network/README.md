@@ -105,11 +105,6 @@ Result:
 | Unique used length | 24,227 km |
 | Unique used build exposure | 113.46 M CAD |
 
-Against the DRA-only baseline, 99,335 routed blocks match.  The median
-nearest-mill route is 13.37 km shorter than the DRA-only route because the
-600 m lattice provides more direct candidate routes and three mills; forcing
-every block to `MILL_95_LBR` is 6.73 km shorter at the median.
-
 The destination split is a **least-haul assignment**, not a product-eligibility
 or mill-demand allocation.  No product-specific eligibility table is invented.
 
@@ -183,7 +178,7 @@ The build is deterministic except for the timestamp in `summary.json`.
 
 ## Limitations
 
-- The grid is strategic (4 km).  It is not a cutblock-level road layout.
+- The grid is strategic (600 m).  It is not a cutblock-level road layout.
 - The potential classes share one construction cost because that is the only
   new-road coefficient in c5.  Do not read the four variants as four
   independently costed engineering standards.
