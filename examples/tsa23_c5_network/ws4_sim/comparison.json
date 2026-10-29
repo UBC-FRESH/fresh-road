@@ -6,10 +6,6 @@
   "years": 5,
   "schedule_blocks": 2000,
   "product_account_check": {
-    "dra": {
-      "common_accounts": 824,
-      "max_abs_product_account_delta": 0.0
-    },
     "c5": {
       "common_accounts": 828,
       "max_abs_product_account_delta": 0.0
@@ -49,71 +45,6 @@
         "product.Yield.managed.CW": 2065.198082579236,
         "product.HarvestedVolume.managed.CW.CC": 2065.198082579236,
         "product.SpeciesProp.managed.CW": 6.375030978837134
-      }
-    },
-    "dra": {
-      "path": "/srv/shared-data/gep/ws4/fresh-road/examples/tsa23_c5_network/ws4_sim/run_dra",
-      "route_accounts": {
-        "product.DRA_95.Yield": 5090935.097717815,
-        "product.HarvestedVolume.managed.AT.CC": 78635.40084635578,
-        "product.HarvestedVolume.managed.BL.CC": 34225.871609501475,
-        "product.HarvestedVolume.managed.CW.CC": 2065.198082579236,
-        "product.HarvestedVolume.managed.FD.CC": 56491.06658234634,
-        "product.HarvestedVolume.managed.FDI.CC": 557557.8123837559,
-        "product.HarvestedVolume.managed.PL.CC": 6524.397146977512,
-        "product.HarvestedVolume.managed.PLI.CC": 197316.7542911641,
-        "product.HarvestedVolume.managed.SE.CC": 40657.19587628283,
-        "product.HarvestedVolume.managed.SX.CC": 340778.5278116777,
-        "product.HarvestedVolume.managed.Total.CC": 1314252.2246306418,
-        "product.SpeciesProp.managed.AT": 547.4287359575131,
-        "product.SpeciesProp.managed.BL": 241.7413725832417,
-        "product.SpeciesProp.managed.CW": 6.375030978837134,
-        "product.SpeciesProp.managed.FD": 642.8486567647899,
-        "product.SpeciesProp.managed.FDI": 3225.808524441042,
-        "product.SpeciesProp.managed.PL": 122.27758547032138,
-        "product.SpeciesProp.managed.PLI": 4689.987729633717,
-        "product.SpeciesProp.managed.SE": 302.0625900626263,
-        "product.SpeciesProp.managed.SX": 1963.0934751743507,
-        "product.Treated.managed.CC": 11741.621830962544,
-        "product.Yield.managed.AT": 78635.40084635578,
-        "product.Yield.managed.BL": 34225.871609501475,
-        "product.Yield.managed.CW": 2065.198082579236,
-        "product.Yield.managed.FD": 56491.06658234634,
-        "product.Yield.managed.FDI": 557557.8123837559,
-        "product.Yield.managed.PL": 6524.397146977512,
-        "product.Yield.managed.PLI": 197316.7542911641,
-        "product.Yield.managed.SE": 40657.19587628283,
-        "product.Yield.managed.SX": 340778.5278116777,
-        "product.Yield.managed.Total": 1314252.2246306418,
-        "route.DRA_95.haul": 0.0
-      },
-      "route_cost_report": {
-        "LENGTH": 5851610.36859058,
-        "BUILTLENGTH": 5851610.368590569,
-        "BUILD_EXPENSE": 0.0,
-        "HAUL_EXPENSE": 0.0,
-        "MAINTAIN_EXPENSE": 0.0,
-        "TOTAL": 0.0,
-        "VOLUME": 5090935.097717815,
-        "AVERAGEHAULDIST": 129.631907699085,
-        "AVERAGEBUILDCOST": 0.0,
-        "AVERAGEHAULCOST": 0.0,
-        "AVERAGEMAINTCOST": 0.0
-      },
-      "routing": {
-        "product_rows": 11424,
-        "unrouted_product_rows": 342,
-        "unrouted_blocks": 36,
-        "unrouted_ledger_volume": 189557.0463367863,
-        "routed_ledger_volume": 5090935.097717807,
-        "total_ledger_volume": 5280492.1440545935,
-        "median_route_length_m": 128626.79410709791,
-        "route_length_m": {
-          "min": 4256.255910059149,
-          "median": 128626.79410709791,
-          "p90": 237126.76332872512,
-          "max": 468819.882763985
-        }
       }
     },
     "c5": {
@@ -188,7 +119,7 @@
   },
   "notes": [
     "The no-road baseline has no route model and no route accounts.",
-    "The DRA fixture is route-length-only; its build, haul, and maintenance costs are zero.",
+    "The c5 network is a single mill-connected component; all scheduled blocks route.",
     "The c5 route model uses the 600 m c5-style lattice and c5 costs.",
     "The c5 destination split is least-haul assignment; no product eligibility or mill demand is modelled.",
     "Ledger volume is the sum of routed product rows, not merchantable volume."

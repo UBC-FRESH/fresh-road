@@ -119,24 +119,24 @@ dataset was changed.
 ## WS4 simulation pass
 
 `ws4_sim/` runs the same compiled TSA 23 dataset and `schedule_baseline.csv`
-(2,000 blocks, 5 years) three ways: no route model, DRA route fixture, and the
-c5 network.  No objective, constraint, growth, or solver code is changed.
+(2,000 blocks, 5 years) with and without the c5 route model.  No objective,
+constraint, growth, or solver code is changed.  The DRA-only orphan components
+are not part of the planned network and are not used as a baseline.
 
-| Metric | DRA | c5 |
-|---|---:|---:|
-| Routed ledger volume | 5,090,935 | 5,280,492 |
-| Unrouted ledger volume | 189,557 | 0 |
-| Unrouted blocks | 36 | 0 |
-| Average haul distance | 129.63 km | 44.66 km |
-| Build expense | 0 | 28.98 M CAD |
-| Haul expense | 0 | 21.67 M CAD |
-| Maintenance expense | 0 | 11.73 M CAD |
-| Total route expense | 0 | 62.38 M CAD |
+| Metric | c5 |
+|---|---:|
+| Routed ledger volume | 5,280,492 |
+| Unrouted ledger volume | 0 |
+| Unrouted blocks | 0 |
+| Average haul distance | 44.66 km |
+| Build expense | 28.98 M CAD |
+| Haul expense | 21.67 M CAD |
+| Maintenance expense | 11.73 M CAD |
+| Total route expense | 62.38 M CAD |
 
-The no-road and routed runs have identical product account values.  The DRA
-fixture is route-length-only; its zero costs are not a cost baseline.  The c5
-route report averages are 5.489 CAD/m³ build, 4.104 CAD/m³ haul, and 2.221
-CAD/m³ maintenance.
+The no-road and c5 runs have identical product account values.  The c5 route
+report averages are 5.489 CAD/m³ build, 4.104 CAD/m³ haul, and 2.221 CAD/m³
+maintenance.
 
 The destination split remains a least-haul assignment, not product eligibility
 or mill demand.  Ledger volume is the sum of routed product rows, not
@@ -156,7 +156,7 @@ merchantable volume.
 - `summary.json` — machine-readable build summary.
 - `source_manifest.json` — WFS type names and feature counts.
 - `ws4_report/route.yaml`, `build_report.py`, and the report outputs.
-- `ws4_sim/` — actual simulation runs, DRA baseline config, and comparison.
+- `ws4_sim/` — actual simulation runs and comparison.
 
 ## Run
 

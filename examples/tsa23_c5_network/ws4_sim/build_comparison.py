@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Build the no-road / DRA / c5 WS4 simulation comparison.
+"""Build the no-road / c5 WS4 simulation comparison.
 
 Reads the run directories written by ``run_sim.sh`` and records the route
-accounts, route-cost reports, and unrouted product rows.
+accounts, route-cost reports, and unrouted product rows.  The DRA-only orphan
+components are intentionally not part of the planned c5 network.
 """
 
 from __future__ import annotations
@@ -15,7 +16,6 @@ import pandas as pd
 HERE = Path(__file__).resolve().parent
 RUNS = {
     "no_road": HERE / "run_base",
-    "dra": HERE / "run_dra",
     "c5": HERE / "run_c5",
 }
 
@@ -64,7 +64,7 @@ def main() -> int:
     runs = {name: _read_run(path) for name, path in RUNS.items()}
     base_accounts = pd.read_csv(RUNS["no_road"] / "account_values.csv")
     product_checks = {}
-    for name in ("dra", "c5"):
+    for name in ("c5",):
         other = pd.read_csv(RUNS[name] / "account_values.csv")
         merged = base_accounts.merge(
             other, on=["offset", "account"], suffixes=("_base", "_run"), how="outer"
@@ -88,7 +88,7 @@ def main() -> int:
         "runs": runs,
         "notes": [
             "The no-road baseline has no route model and no route accounts.",
-            "The DRA fixture is route-length-only; its build, haul, and maintenance costs are zero.",
+            "The c5 network is a single mill-connected component; all scheduled blocks route.",
             "The c5 route model uses the 600 m c5-style lattice and c5 costs.",
             "The c5 destination split is least-haul assignment; no product eligibility or mill demand is modelled.",
             "Ledger volume is the sum of routed product rows, not merchantable volume.",
